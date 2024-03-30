@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <div>
-        <h2 className="text-red-500">imgfx</h2>
+        <h2 className="">imgfx</h2>
         <ImageUpload/>
       </div>
     </>

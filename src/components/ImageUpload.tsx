@@ -6,8 +6,14 @@ const ImageUpload = () => {
   const [loading, setLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<string | null>(null);
 
-  const handleFileUpload = async (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0]
+  const handleFileUpload = async (event: ChangeEvent<HTMLInputElement> | DragEvent) => {
+    event.preventDefault();
+    let file;
+    if (event.type === 'drop') {
+      file = (event as DragEvent).dataTransfer?.files[0];
+    } else {
+      file = (event as ChangeEvent<HTMLInputElement>).target.files?.[0];
+    }
     setError(null);
     if (file) {
         setLoading(true);
@@ -19,17 +25,22 @@ const ImageUpload = () => {
     }
   }
 
+  const handleDragOver = (event: DragEvent) => {
+    event.preventDefault();
+  }
+
   return (
   <div>
-      <div id="dropZone" className="drop-zone">
-        <h1 className='text-red-500'>Remove Background</h1>
+      <div id="dropZone" className="drop-zone" onDragOver={handleDragOver} onDrop={handleFileUpload}>
+        <h1 className=''>Remove Background</h1>
         <form
+        className='flex justify-center items-center flex-col gap-1'
           id="uploadForm"
         >
           <input id="fileInput" type="file" name="file" onChange={handleFileUpload} />
           {loading && <p>Processing...</p>}
           {error && <p>{error}</p>}
-          {file && <img loading='lazy' className='object-contain w-[20vw] max-h-[20vw]' src={file} alt="Background Removed"/>}
+          {file && <img loading='lazy' className='object-contain w-[20vw] max-h-[20vw] border-[1px]' src={file} alt="Background Removed"/>}
           {file && <a href={file} download="removed-background.png">Download Image</a>}
         </form>
       </div>
