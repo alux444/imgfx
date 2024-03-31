@@ -35,15 +35,15 @@ const ImageUpload = () => {
     <div>
       <div id="dropZone" className="drop-zone" onDragOver={handleDragOver} onDrop={handleFileUpload}>
         <h1 className="">Remove Background</h1>
-        <form className="flex justify-center items-center flex-col gap-1" id="uploadForm">
+        <form className="flex justify-center items-center flex-col gap-2" id="uploadForm">
           <input id="fileInput" type="file" name="file" onChange={handleFileUpload} className="hidden" />
-          <label htmlFor="fileInput" className="border-[1px] w-[250px] h-[50px] flex justify-center items-center text-center">
+          <label htmlFor="fileInput" className="cursor-pointer border-[1px] w-[250px] h-[50px] flex justify-center items-center text-center">
             <span>Upload File</span>
           </label>
           {fileName && <p>{fileName}</p>}
           {loading && <p>Processing...</p>}
           {error && <p>{error}</p>}
-          {file && <img loading="lazy" className="object-contain w-[20vw] max-h-[20vw] border-[1px]" src={file} alt="Background Removed" />}
+          {file && <img loading="lazy" className="object-contain flex-grow w-[60vw] md:w-[50vw] xl:w-[20vw] max-h-[20vh] border-[1px]" src={file} alt="Background Removed" />}
           {file && (
             <a href={file} download="removed-background.png">
               Download Image
