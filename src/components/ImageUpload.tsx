@@ -10,7 +10,7 @@ const ImageUpload = () => {
   const handleFileUpload = async (event: ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     let file;
-    if (event.type === 'drop') {
+    if (event.type === "drop") {
       file = (event as React.DragEvent<HTMLDivElement>).dataTransfer?.files[0];
     } else {
       file = (event as ChangeEvent<HTMLInputElement>).target.files?.[0];
