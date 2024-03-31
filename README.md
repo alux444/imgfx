@@ -4,7 +4,9 @@ Basic image processing web app, allowing for the removal of backgrounds of an up
 
 This repo includes a simple express app for serving the build in `server.js` and a Dockerfile used to containerise the application.
 
-# ---
+The app is built on TypeScript React with TailwindCSS used for styling.
+
+---
 
 ## To run the production build:
 
