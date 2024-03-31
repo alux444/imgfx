@@ -33,11 +33,11 @@ const ImageUpload = () => {
 
   return (
     <div>
-      <div id="dropZone" className="drop-zone" onDragOver={handleDragOver} onDrop={handleFileUpload}>
+      <div id="dropZone" className="flex flex-col h-[80vh] w-[80vw] border-[1px] border-dashed p-3 items-center align-center justify-center" onDragOver={handleDragOver} onDrop={handleFileUpload}>
         <h1 className="">Remove Background</h1>
         <form className="flex justify-center items-center flex-col gap-2" id="uploadForm">
           <input id="fileInput" type="file" name="file" onChange={handleFileUpload} className="hidden" />
-          <label htmlFor="fileInput" className="cursor-pointer border-[1px] w-[250px] h-[50px] flex justify-center items-center text-center">
+          <label htmlFor="fileInput" className="mt-2 cursor-pointer border-[1px] w-[250px] h-[50px] flex justify-center items-center text-center hover:bg-gray-800 transition-all">
             <span>Upload File</span>
           </label>
           {fileName && <p>{fileName}</p>}

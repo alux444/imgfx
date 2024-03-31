@@ -1,6 +1,6 @@
 # imgfx
 
-Basic image processing web app, allowing for the removal of backgrounds of an uploaded image.
+imgfx is a basic image processing web app, allowing for the removal of backgrounds of an uploaded image.
 
 This repo includes a simple express app for serving the build in `server.js` and a Dockerfile used to containerise the application.
 
